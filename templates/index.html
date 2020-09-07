@@ -1,0 +1,103 @@
+
+<html>
+  <head>
+    <title>my stock prediction</title>
+    <link rel="stylesheet"
+    href="{{url_for('.static', filename='css/bootstrap.css')}}">
+  <link rel="stylesheet"
+  href="{{url_for('.static', filename='css/style.css')}}">
+  <style>
+    body{
+
+      background-image: url(static/image/bbg.jpg) ;
+      background-repeat: no-repeat;
+      background-size: 100vw 100vh;
+      width:100%;
+      height:100vh;
+      
+    }
+    .container{
+
+      background-color: whitesmoke;
+     
+      padding: 20;
+      position: relative;
+      top: 200px;
+    }
+    .mh
+    {
+      color:black;
+      background-color:white;
+      width: 1100px;
+      margin-top: 30;
+      
+    }
+
+  </style>
+<body>
+  <center><DIV class="mh"> <h1>STOCK MARKET CLOSING PREDICTION BY NILESH</h1></DIV></center>
+ 
+  <div class="container border border-primary">
+    
+  <form action="/index"  method="post">
+  
+    <div class="form-group">
+     <h1><label for="stock symbol">Enter the Stock symbol:</label></h1> 
+      <h3> <input type="text" class="form-control font-weight-bold" id="symbol" name="symbol" value="{{ s.upper() }}"> </h3>
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+  <hr>
+  </form>
+  <div class="row">
+    <h3>Previous Close: {{ x  }}  </h3>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      
+      <h1 id="sm">Prediction modal</h1>
+    </div>
+    <div class="col">
+      <h1 id="sa">Accuracy</h1>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col">
+      <h1 id="sp">Next closing</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      
+      <h1 id="sm">SVR</h1>
+    </div>
+    <div class="col">
+      <h1 id="sa">{{ a1 }}</h1>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col">
+      <h1 id="sp">{{ p1 }}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h1 id="lm">Linnear</h1>
+    </div>
+    <div class="col">
+      <h1 id="la">{{ a2 }}</h1>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col">
+      <h1 id="lp">{{ p2 }}</h1>
+    </div>
+  </div>
+  </div>
+  
+
+
+  <script src="{{url_for('.static', filename='js/bootsrap.js')}}"></script> 
+  </html>
